@@ -46,6 +46,7 @@ Aspiring Data Analyst passionate about transforming raw data into meaningful ins
 
     <p class="subheadline">
       Open to entry-level Data Analyst / BI Analyst roles.
+    </p>
 
     <div class="cta">
       <a class="btn primary" href="#project"><i class="fa-solid fa-folder"></i><span>View Projects</span></a>
@@ -138,15 +139,18 @@ Aspiring Data Analyst passionate about transforming raw data into meaningful ins
         <div class="text">
           Feel free to reach out for collaborations, questions, or just to say hi!
         </div>
-        <form>
-          <label for="name">Name</label>
-          <input type="text" id="name" placeholder="Your Name">
-          <label for="email">Email</label>
-          <input type="email" id="email" placeholder="Your Email">
-          <label for="message">Message</label>
-          <textarea id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
-          <button type="submit">Send Message</button>
-        </form>
+          <form>
+              <label for="name">Name</label>
+              <input type="text" id="name" name="name" placeholder="Your Name">
+
+              <label for="email">Email</label>
+              <input type="email" id="email" name="email" placeholder="Your Email">
+
+              <label for="message">Message</label>
+              <textarea id="message" name="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+
+             <button type="button" onclick="sendMail()">Send Message</button>
+          </form>
       </div>
     </section>
   </main>
@@ -174,3 +178,15 @@ Aspiring Data Analyst passionate about transforming raw data into meaningful ins
 
   reveals.forEach(el => observer.observe(el));
 </script>
+
+<script type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js">
+</script>
+<script type="text/javascript">
+   (function(){
+      emailjs.init({
+        publicKey: "ACY9NV9RI6WeAcrEq",
+      });
+   })();
+</script>
+<script src="script.js"></script>
