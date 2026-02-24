@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <!-- FONT AWESOME -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+  <link rel="stylesheet" href="styles.css">
+
+  <title>Bernabe Brua Portfolio</title>
+</head>
+<body>
+  <!-- NAVBAR -->
+  <nav>
+    <div class="left">
+      <a href="#">Bernabe Brua</a>
+    </div>
+    <div class="right">
+      <a href="http://github.com" target="_blank">
+        <i class="fa-brands fa-github"></i><span>Github</span>
+      </a>
+      <a href="https://www.linkedin.com/in/bernabebrua/" target="_blank">
+        <i class="fa-brands fa-linkedin"></i><span>Linkedin</span>
+      </a>
+      <a href="mailto:bernabebrua.1105@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bernabe,%20I%20saw%20your%20portfolio...">
+        <i class="fa-solid fa-envelope"></i><span>Email</span>
+      </a>
+    </div>
+  </nav>
+
+  <main>
+    <!-- HERO -->
+    <section class="hero-section">
+  <div class="text">
+    <h2>Hi, I'm Bernabe 👋</h2>
+
+    <p class="headline">
+Aspiring Data Analyst passionate about transforming raw data into meaningful insights that support better decision-making.    </p>
+
+    <p class="subheadline">
+      Open to entry-level Data Analyst / BI Analyst roles.
+
+    <div class="cta">
+      <a class="btn primary" href="#project"><i class="fa-solid fa-folder"></i><span>View Projects</span></a>
+      <a class="btn" href="resume.pdf" target="_blank"><i class="fa-solid fa-file-arrow-down"></i><span>Download Resume</span></a>
+      <a class="btn" href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+    </div>
+  </div>
+
+  <div class="headshot">
+    <img src="images/my-pic2.jpg" alt="Bernabe Brua">
+  </div>
+</section>
+
+    <!-- SKILLS -->
+    <section id="skills" class="skills-section">
+      <h2>Skills</h2>
+      <div class="text">
+        Hands-on experience with data analysis, visualization, and database tools gained through coursework and practical projects. Focused on building efficient, data-driven solutions and continuously improving technical capabilities.
+      </div>
+      <div class="cells">
+        <div class="cell"><img src="images/excel-logo.png" alt="Excel"><span>Excel</span></div>
+        <div class="cell"><img src="images/sql-logo.png" alt="SQL"><span>SQL</span></div>
+        <div class="cell"><img src="images/tableau-logo.png" alt="Tableau"><span>Tableau</span></div>
+        <div class="cell"><img src="images/python-logo.png" alt="Python"><span>Python</span></div>
+        <div class="cell"><img src="images/talend-logo.png" alt="Talend"><span>Talend</span></div>
+        <div class="cell"><img src="images/aws-logo.png" alt="AWS"><span>AWS</span></div>
+        <div class="cell"><img src="images/Azure-logo.png" alt="Azure"><span>Azure</span></div>
+      </div>
+    </section>
+
+    <!-- DATABASES -->
+    <section id="databases" class="skills-section">
+      <h2>Databases</h2>
+      <div class="text">
+        Built foundational knowledge of relational databases through self-directed learning and practical projects. Experienced in writing SQL queries, organizing data, and performing data operations within professional database environments.
+      </div>
+      <div class="cells">
+        <div class="cell"><img src="images/SSMS-logo.png" alt="SSMS"><span>SSMS</span></div>
+        <div class="cell"><img src="images/MySQL Workbench- logo.png" alt="MySQL Workbench"><span>MySQL Workbench</span></div>
+      </div>
+    </section>
+
+    <!-- PROJECTS -->
+<section id="project" class="project-section reveal">
+  <h2>Projects</h2>
+
+  <div class="group">
+
+    <div class="project-card">
+      <a href="https://example.com/project1" target="_blank">
+        <img src="images/HR _ Dashboard.png" alt="Project 1">
+        <img src="images/Sales Dashboard.png" alt="Project 1">
+        <span class="project-overlay">View Project →</span>
+      </a>
+
+      <p class="project-title">Tableau Project</p>
+      <p class="project-subtitle">Sales and Hr Dashboard</p>
+
+      <div class="tags">
+        <span class="tag">Tableau</span>
+      </div>
+
+      <p class="project-impact">Built a dashboard to track KPIs and trends for faster reporting.</p>
+    </div>
+
+    <div class="project-card">
+      <a href="https://example.com/project2" target="_blank">
+        <img src="images/johnny-sins-1.webp" alt="Project 2">
+        <span class="project-overlay">View Project →</span>
+      </a>
+
+      <p class="project-title">SQL Project</p>
+      <p class="project-subtitle">Advaced Data Analysis</p>
+
+      <div class="tags">
+        <span class="tag">SQL</span>
+        <span class="tag">MySQL</span>
+      </div>
+
+      <p class="project-impact">Analyzed orders and customer behavior to identify top products.</p>
+    </div>
+
+  </div>
+</section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="contact-section reveal">
+      <h2>Contact</h2>
+      <div class="group">
+        <div class="text">
+          Feel free to reach out for collaborations, questions, or just to say hi!
+        </div>
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" placeholder="Your Name">
+          <label for="email">Email</label>
+          <input type="email" id="email" placeholder="Your Email">
+          <label for="message">Message</label>
+          <textarea id="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+          <button type="submit">Send Message</button>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- DARK MODE TOGGLE BUTTON -->
+  <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
+
+  <!-- DARK MODE SCRIPT -->
+  <script>
+  // Dark mode
+  const toggle = document.getElementById('darkModeToggle');
+  toggle.addEventListener('click', () => {
+    document.body.classList.toggle('dark');
+    toggle.innerText = document.body.classList.contains('dark') ? '☀️' : '🌙';
+  });
+
+  // Scroll reveal
+  const reveals = document.querySelectorAll('.reveal');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) entry.target.classList.add('show');
+    });
+  }, { threshold: 0.15 });
+
+  reveals.forEach(el => observer.observe(el));
+</script>

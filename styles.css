@@ -1,0 +1,561 @@
+/* ==============================
+   1) BACKGROUND ANIMATION
+============================== */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  width: 200%;
+  height: 200%;
+  background:
+    radial-gradient(circle at 20% 30%, #00d4ff, transparent 50%),
+    radial-gradient(circle at 80% 70%, #6a00ff, transparent 50%);
+  animation: rotateBG 60s linear infinite;
+  z-index: -1;
+}
+
+@keyframes rotateBG {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* ==============================
+   2) VARIABLES
+============================== */
+:root {
+  --text-color: #1a1c20;
+  --link-color: #4a76ee;
+  --background-color: #eeeff1;
+}
+
+/* ==============================
+   3) RESET + GLOBAL
+============================== */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Poppins', sans-serif;
+  color: var(--text-color);
+  background-color: var(--background-color);
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+a {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
+/* Shared section spacing */
+.skills-section,
+.contact-section {
+  padding: 0 50px;
+  margin-bottom: 100px;
+}
+
+/* Shared section headings */
+.skills-section h2,
+.project-section h2,
+.contact-section h2 {
+  text-align: center;
+  font-size: 38px;
+  margin-bottom: 30px;
+  color: var(--text-color);
+}
+
+/* ==============================
+   4) NAVBAR
+============================== */
+nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  height: 80px;
+}
+
+nav .left a {
+  color: var(--text-color);
+  font-size: 22px;
+  font-weight: 600;
+}
+
+nav .right a {
+  color: var(--text-color);
+  margin: 0 10px;
+}
+
+nav .right a:last-child {
+  color: var(--background-color);
+  background-color: var(--text-color);
+  padding: 5px 15px;
+  border-radius: 5px;
+}
+
+nav .right a span { margin-left: 5px; }
+
+/* ==============================
+   5) HERO
+============================== */
+.hero-section {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 50px;
+  margin: 50px 0 100px;
+  gap: 40px;
+}
+
+.hero-section .text { flex: 5; }
+
+.hero-section .text h2 {
+  font-size: 45px;
+  color: var(--text-color);
+}
+
+.hero-section .text p { color: var(--text-color); }
+
+.hero-section .text .links a {
+  display: inline-block;
+  padding: 5px 10px;
+  border: 2px solid var(--link-color);
+  border-radius: 5px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+  transition: 0.15s;
+}
+
+.hero-section .text .links a:hover {
+  color: var(--text-color);
+  border: 2px solid var(--text-color);
+}
+
+.hero-section .headshot {
+  flex: 2;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.hero-section .headshot img {
+  width: 350px;
+  border-radius: 50%;
+}
+
+/* ==============================
+   6) SKILLS / DATABASES
+============================== */
+.skills-section .text {
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 800px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-color);
+  transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
+}
+
+.skills-section .text:hover {
+  transform: translateY(-5px);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.skills-section .cells {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  perspective: 1000px;
+}
+
+.skills-section .cells .cell {
+  width: 160px;
+  padding: 15px 20px;
+  margin: 10px;
+  background: #fff;
+  border-radius: 15px;
+  border: 1.5px solid #ddd;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2), -5px -5px 15px rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.4s, box-shadow 0.4s, background-color 0.3s;
+}
+
+.skills-section .cells .cell:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  box-shadow: 10px 10px 25px rgba(0,0,0,0.3), -10px -10px 25px rgba(255,255,255,0.5);
+}
+
+.skills-section .cells .cell img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.skills-section .cells .cell:hover img { transform: scale(1.1); }
+
+.skills-section .cells .cell span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* ==============================
+   7) PROJECTS (CLEAN + GLASS + OVERLAY + FAN)
+============================== */
+.project-section {
+  width: 100%;
+  margin: 0 auto 100px;
+  padding: 0 50px;
+  text-align: center;
+
+  /* NEW: centers the whole section content */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-section .group {
+  width: 100%;
+  max-width: 1100px;        /* keeps it centered nicely */
+  margin: 0 auto;
+
+  display: flex;
+  flex-wrap: wrap;          /* ✅ when you reach 5+, it goes down */
+  justify-content: center;  /* ✅ ALWAYS centered */
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* Glass Card */
+.project-card {
+  width: 240px;
+  padding: 18px 16px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+/* Stack container */
+.project-card a {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  overflow: hidden;
+}
+
+/* Images */
+.project-card a img {
+  position: absolute;
+  inset: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+/* Default stacking */
+.project-card a img:nth-child(1) { transform: translate(0, 0); z-index: 3; }
+.project-card a img:nth-child(2) { transform: translate(10px, -10px); z-index: 2; }
+.project-card a img:nth-child(3) { transform: translate(20px, -20px); z-index: 1; }
+
+/* Fan hover */
+.project-card:hover img:nth-child(1) {
+  transform: translate(-22px, 10px) rotate(-10deg) scale(1.02);
+}
+.project-card:hover img:nth-child(2) {
+  transform: translate(0px, -6px) rotate(0deg) scale(1.03);
+}
+.project-card:hover img:nth-child(3) {
+  transform: translate(22px, -18px) rotate(10deg) scale(1.02);
+}
+
+/* Overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.35s ease;
+  z-index: 10;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Titles */
+.project-title,
+.project-subtitle {
+  width: 200px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.project-title {
+  margin-top: 6px;
+  font-weight: 600;
+}
+
+.project-subtitle {
+  margin-top: 4px;
+  font-size: 14px;
+  opacity: 0.8;
+}
+
+/* ==============================
+   8) CONTACT
+============================== */
+.contact-section .group {
+  display: flex;
+  gap: 50px;
+}
+
+.contact-section .group .text {
+  flex: 3;
+  margin-top: 20px;
+  color: var(--text-color);
+}
+
+.contact-section .group form {
+  flex: 3;
+  display: flex;
+  flex-direction: column;
+}
+
+.contact-section input,
+.contact-section textarea {
+  font-family: 'Poppins', sans-serif;
+  border: 2px solid var(--link-color);
+  background-color: transparent;
+  padding: 10px;
+  margin-bottom: 15px;
+  outline: none;
+  resize: none;
+  color: var(--text-color);
+}
+
+.contact-section button {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background-color: var(--link-color);
+  border: none;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.contact-section button:hover { filter: brightness(0.9); }
+
+/* ==============================
+   9) RESPONSIVE
+============================== */
+@media (max-width: 850px) {
+  .hero-section .text h2 { font-size: 35px; }
+}
+
+@media (max-width: 740px) {
+  .hero-section { flex-direction: column-reverse; }
+  .hero-section .headshot img { width: 300px; }
+  .contact-section .group { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  nav .right a { font-size: 22px; }
+  nav .right a:last-child {
+    color: var(--text-color);
+    background-color: transparent;
+    padding: 0;
+  }
+  nav .right a span { display: none; }
+
+  .hero-section { padding: 0 20px; }
+  .hero-section .text h2 { font-size: 30px; }
+
+  .skills-section,
+  .contact-section,
+  .project-section {
+    padding: 0 20px;
+  }
+
+  .skills-section .cells .cell span { font-size: 16px; }
+}
+
+/* ==============================
+   10) DARK MODE
+============================== */
+body.dark {
+  --text-color: #eee;
+  --background-color: #121212;
+  --link-color: #0cf;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark nav { background-color: #1a1a1a; }
+
+body.dark .skills-section .cells .cell {
+  background-color: #1f1f1f;
+  border-color: #333;
+}
+
+body.dark .project-card {
+  background: rgba(25, 25, 25, 0.55);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
+}
+
+body.dark a { color: var(--link-color); }
+
+/* DARK MODE TOGGLE */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #00d4ff;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0,212,255,0.4);
+  z-index: 100;
+  transition: transform 0.3s;
+}
+
+.dark-mode-toggle:hover { transform: scale(1.1); }
+
+/* ==============================
+   HERO CTA + TEXT
+============================== */
+.hero-section .headline {
+  margin-top: 10px;
+  font-size: 18px;
+  line-height: 1.7;
+  max-width: 620px;
+}
+
+.hero-section .subheadline {
+  margin-top: 10px;
+  font-size: 15px;
+  opacity: 0.85;
+  max-width: 620px;
+}
+
+.hero-section .cta {
+  margin-top: 18px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 2px solid var(--link-color);
+  color: var(--text-color);
+  background: transparent;
+  transition: transform 0.2s, filter 0.2s, background 0.2s;
+}
+
+.btn.primary {
+  background: var(--link-color);
+  color: #fff;
+  border-color: var(--link-color);
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+  filter: brightness(0.95);
+}
+
+/* ==============================
+   PROJECT TAGS + IMPACT
+============================== */
+.tags {
+  margin-top: 10px;
+  display: flex;
+  gap: 8px;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.tag {
+  font-size: 12px;
+  padding: 5px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(0,0,0,0.12);
+  background: rgba(255,255,255,0.6);
+}
+
+.project-impact {
+  margin-top: 10px;
+  font-size: 13px;
+  line-height: 1.5;
+  opacity: 0.85;
+  width: 200px;
+  text-align: center;
+}
+
+/* Dark mode tags */
+body.dark .tag {
+  background: rgba(25, 25, 25, 0.6);
+  border-color: rgba(255,255,255,0.12);
+}
+
+/* ==============================
+   SCROLL REVEAL ANIMATION
+============================== */
+.reveal {
+  opacity: 0;
+  transform: translateY(22px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.reveal.show {
+  opacity: 1;
+  transform: translateY(0);
+}
