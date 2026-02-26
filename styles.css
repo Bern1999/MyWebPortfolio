@@ -12,6 +12,7 @@ body::before {
     radial-gradient(circle at 80% 70%, #6a00ff, transparent 50%);
   animation: rotateBG 60s linear infinite;
   z-index: -1;
+  transform-origin: center;
 }
 
 @keyframes rotateBG {
@@ -31,12 +32,7 @@ body::before {
 /* ==============================
    3) RESET + GLOBAL
 ============================== */
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
-
+* { margin: 0; padding: 0; box-sizing: border-box; }
 html { scroll-behavior: smooth; }
 
 body {
@@ -47,10 +43,7 @@ body {
   margin: 0 auto;
 }
 
-a {
-  color: var(--link-color);
-  text-decoration: none;
-}
+a { color: var(--link-color); text-decoration: none; }
 
 /* Shared section spacing */
 .skills-section,
@@ -121,21 +114,6 @@ nav .right a span { margin-left: 5px; }
 
 .hero-section .text p { color: var(--text-color); }
 
-.hero-section .text .links a {
-  display: inline-block;
-  padding: 5px 10px;
-  border: 2px solid var(--link-color);
-  border-radius: 5px;
-  margin-right: 10px;
-  margin-bottom: 10px;
-  transition: 0.15s;
-}
-
-.hero-section .text .links a:hover {
-  color: var(--text-color);
-  border: 2px solid var(--text-color);
-}
-
 .hero-section .headshot {
   flex: 2;
   display: flex;
@@ -147,327 +125,7 @@ nav .right a span { margin-left: 5px; }
   border-radius: 50%;
 }
 
-/* ==============================
-   6) SKILLS / DATABASES
-============================== */
-.skills-section .text {
-  text-align: center;
-  margin: 0 auto 30px;
-  max-width: 800px;
-  font-size: 17px;
-  line-height: 1.6;
-  color: var(--text-color);
-  transition: transform 0.3s, text-shadow 0.3s, color 0.3s;
-}
-
-.skills-section .text:hover {
-  transform: translateY(-5px);
-  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
-}
-
-.skills-section .cells {
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  gap: 20px;
-  perspective: 1000px;
-}
-
-.skills-section .cells .cell {
-  width: 160px;
-  padding: 15px 20px;
-  margin: 10px;
-  background: #fff;
-  border-radius: 15px;
-  border: 1.5px solid #ddd;
-  box-shadow: 5px 5px 15px rgba(0,0,0,0.2), -5px -5px 15px rgba(255,255,255,0.7);
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  transition: transform 0.4s, box-shadow 0.4s, background-color 0.3s;
-}
-
-.skills-section .cells .cell:hover {
-  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
-  box-shadow: 10px 10px 25px rgba(0,0,0,0.3), -10px -10px 25px rgba(255,255,255,0.5);
-}
-
-.skills-section .cells .cell img {
-  width: 50px;
-  height: 50px;
-  object-fit: contain;
-  border-radius: 10px;
-  transition: transform 0.3s;
-}
-
-.skills-section .cells .cell:hover img { transform: scale(1.1); }
-
-.skills-section .cells .cell span {
-  font-size: 18px;
-  font-weight: 600;
-  color: var(--text-color);
-  text-align: center;
-}
-
-/* ==============================
-   7) PROJECTS (CLEAN + GLASS + OVERLAY + FAN)
-============================== */
-.project-section {
-  width: 100%;
-  margin: 0 auto 100px;
-  padding: 0 50px;
-  text-align: center;
-
-  /* NEW: centers the whole section content */
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.project-section .group {
-  width: 100%;
-  max-width: 1100px;        /* keeps it centered nicely */
-  margin: 0 auto;
-
-  display: flex;
-  flex-wrap: wrap;          /* ✅ when you reach 5+, it goes down */
-  justify-content: center;  /* ✅ ALWAYS centered */
-  align-items: flex-start;
-  gap: 30px;
-}
-
-/* Glass Card */
-.project-card {
-  width: 240px;
-  padding: 18px 16px 16px;
-  border-radius: 18px;
-  background: rgba(255, 255, 255, 0.55);
-  backdrop-filter: blur(10px);
-  -webkit-backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.35);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
-
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-
-  transition: transform 0.35s ease, box-shadow 0.35s ease;
-}
-
-.project-card:hover {
-  transform: translateY(-8px);
-  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
-}
-
-/* Stack container */
-.project-card a {
-  position: relative;
-  width: 200px;
-  height: 200px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  margin-bottom: 16px;
-  overflow: hidden;
-}
-
-/* Images */
-.project-card a img {
-  position: absolute;
-  inset: 0;
-  width: 200px;
-  height: 200px;
-  object-fit: cover;
-  border-radius: 18px;
-  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
-  transition: transform 0.45s ease, box-shadow 0.45s ease;
-}
-
-/* Default stacking */
-.project-card a img:nth-child(1) { transform: translate(0, 0); z-index: 3; }
-.project-card a img:nth-child(2) { transform: translate(10px, -10px); z-index: 2; }
-.project-card a img:nth-child(3) { transform: translate(20px, -20px); z-index: 1; }
-
-/* Fan hover */
-.project-card:hover img:nth-child(1) {
-  transform: translate(-22px, 10px) rotate(-10deg) scale(1.02);
-}
-.project-card:hover img:nth-child(2) {
-  transform: translate(0px, -6px) rotate(0deg) scale(1.03);
-}
-.project-card:hover img:nth-child(3) {
-  transform: translate(22px, -18px) rotate(10deg) scale(1.02);
-}
-
-/* Overlay */
-.project-overlay {
-  position: absolute;
-  inset: 0;
-  border-radius: 18px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  background: rgba(0,0,0,0.35);
-  color: #fff;
-  font-weight: 600;
-  opacity: 0;
-  transform: translateY(10px);
-  transition: 0.35s ease;
-  z-index: 10;
-}
-
-.project-card:hover .project-overlay {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-/* Titles */
-.project-title,
-.project-subtitle {
-  width: 200px;
-  text-align: center;
-  color: var(--text-color);
-}
-
-.project-title {
-  margin-top: 6px;
-  font-weight: 600;
-}
-
-.project-subtitle {
-  margin-top: 4px;
-  font-size: 14px;
-  opacity: 0.8;
-}
-
-/* ==============================
-   8) CONTACT
-============================== */
-.contact-section .group {
-  display: flex;
-  gap: 50px;
-}
-
-.contact-section .group .text {
-  flex: 3;
-  margin-top: 20px;
-  color: var(--text-color);
-}
-
-.contact-section .group form {
-  flex: 3;
-  display: flex;
-  flex-direction: column;
-}
-
-.contact-section input,
-.contact-section textarea {
-  font-family: 'Poppins', sans-serif;
-  border: 2px solid var(--link-color);
-  background-color: transparent;
-  padding: 10px;
-  margin-bottom: 15px;
-  outline: none;
-  resize: none;
-  color: var(--text-color);
-}
-
-.contact-section button {
-  font-size: 16px;
-  font-family: 'Poppins', sans-serif;
-  color: #fff;
-  background-color: var(--link-color);
-  border: none;
-  height: 50px;
-  cursor: pointer;
-  transition: 0.15s;
-}
-
-.contact-section button:hover { filter: brightness(0.9); }
-
-/* ==============================
-   9) RESPONSIVE
-============================== */
-@media (max-width: 850px) {
-  .hero-section .text h2 { font-size: 35px; }
-}
-
-@media (max-width: 740px) {
-  .hero-section { flex-direction: column-reverse; }
-  .hero-section .headshot img { width: 300px; }
-  .contact-section .group { flex-direction: column; }
-}
-
-@media (max-width: 600px) {
-  nav { padding: 0 20px; }
-  nav .right a { font-size: 22px; }
-  nav .right a:last-child {
-    color: var(--text-color);
-    background-color: transparent;
-    padding: 0;
-  }
-  nav .right a span { display: none; }
-
-  .hero-section { padding: 0 20px; }
-  .hero-section .text h2 { font-size: 30px; }
-
-  .skills-section,
-  .contact-section,
-  .project-section {
-    padding: 0 20px;
-  }
-
-  .skills-section .cells .cell span { font-size: 16px; }
-}
-
-/* ==============================
-   10) DARK MODE
-============================== */
-body.dark {
-  --text-color: #eee;
-  --background-color: #121212;
-  --link-color: #0cf;
-  background-color: var(--background-color);
-  color: var(--text-color);
-}
-
-body.dark nav { background-color: #1a1a1a; }
-
-body.dark .skills-section .cells .cell {
-  background-color: #1f1f1f;
-  border-color: #333;
-}
-
-body.dark .project-card {
-  background: rgba(25, 25, 25, 0.55);
-  border: 1px solid rgba(255, 255, 255, 0.08);
-  box-shadow: 0 12px 30px rgba(0,0,0,0.35);
-}
-
-body.dark a { color: var(--link-color); }
-
-/* DARK MODE TOGGLE */
-.dark-mode-toggle {
-  position: fixed;
-  bottom: 30px;
-  right: 30px;
-  background: #00d4ff;
-  color: #fff;
-  padding: 12px 16px;
-  border-radius: 50px;
-  cursor: pointer;
-  font-weight: 600;
-  box-shadow: 0 5px 15px rgba(0,212,255,0.4);
-  z-index: 100;
-  transition: transform 0.3s;
-}
-
-.dark-mode-toggle:hover { transform: scale(1.1); }
-
-/* ==============================
-   HERO CTA + TEXT
-============================== */
+/* HERO CTA */
 .hero-section .headline {
   margin-top: 10px;
   font-size: 18px;
@@ -513,8 +171,203 @@ body.dark a { color: var(--link-color); }
 }
 
 /* ==============================
-   PROJECT TAGS + IMPACT
+   6) SKILLS / DATABASES
 ============================== */
+.skills-section .text {
+  text-align: center;
+  margin: 0 auto 30px;
+  max-width: 800px;
+  font-size: 17px;
+  line-height: 1.6;
+  color: var(--text-color);
+  transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.skills-section .text:hover {
+  transform: translateY(-5px);
+  text-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+}
+
+.skills-section .cells {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 20px;
+  perspective: 1000px;
+}
+
+.skills-section .cells .cell {
+  width: 160px;
+  padding: 15px 20px;
+  margin: 10px;
+  background: #fff;
+  border-radius: 15px;
+  border: 1.5px solid #ddd;
+  box-shadow: 5px 5px 15px rgba(0,0,0,0.2), -5px -5px 15px rgba(255,255,255,0.7);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  transition: transform 0.4s, box-shadow 0.4s;
+}
+
+.skills-section .cells .cell:hover {
+  transform: rotateY(10deg) rotateX(5deg) scale(1.05);
+  box-shadow: 10px 10px 25px rgba(0,0,0,0.3), -10px -10px 25px rgba(255,255,255,0.5);
+}
+
+.skills-section .cells .cell img {
+  width: 50px;
+  height: 50px;
+  object-fit: contain;
+  border-radius: 10px;
+  transition: transform 0.3s;
+}
+
+.skills-section .cells .cell:hover img { transform: scale(1.1); }
+
+.skills-section .cells .cell span {
+  font-size: 18px;
+  font-weight: 600;
+  color: var(--text-color);
+  text-align: center;
+}
+
+/* ==============================
+   7) PROJECTS
+============================== */
+.project-section {
+  width: 100%;
+  margin: 0 auto 100px;
+  padding: 0 50px;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.project-section .group {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: flex-start;
+  gap: 30px;
+}
+
+/* Glass Card */
+.project-card {
+  width: 240px;
+  padding: 18px 16px 16px;
+  border-radius: 18px;
+  background: rgba(255, 255, 255, 0.55);
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.35);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.12);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  transition: transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 18px 40px rgba(0,0,0,0.18);
+}
+
+/* Project 1 anchor */
+.project-card a {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom: 16px;
+  overflow: hidden;
+  border-radius: 18px;
+}
+
+/* Stacked images (2 only) */
+.project-card a img {
+  position: absolute;
+  inset: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+  transition: transform 0.45s ease, box-shadow 0.45s ease;
+}
+
+.project-card a img:nth-child(1) { transform: translate(0, 0); z-index: 2; }
+.project-card a img:nth-child(2) { transform: translate(12px, -12px); z-index: 1; }
+
+.project-card:hover a img:nth-child(1) { transform: translate(-12px, 8px) rotate(-7deg) scale(1.02); }
+.project-card:hover a img:nth-child(2) { transform: translate(12px, -10px) rotate(7deg) scale(1.02); }
+
+/* Overlay */
+.project-overlay {
+  position: absolute;
+  inset: 0;
+  border-radius: 18px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: rgba(0,0,0,0.35);
+  color: #fff;
+  font-weight: 600;
+  opacity: 0;
+  transform: translateY(10px);
+  transition: 0.35s ease;
+  z-index: 10;
+}
+
+.project-card:hover .project-overlay {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Titles */
+.project-title,
+.project-subtitle {
+  width: 200px;
+  text-align: center;
+  color: var(--text-color);
+}
+
+.project-title { margin-top: 6px; font-weight: 600; }
+.project-subtitle { margin-top: 4px; font-size: 14px; opacity: 0.8; }
+
+/* Project button */
+.project-card button.project-open {
+  position: relative;
+  width: 200px;
+  height: 200px;
+  display: block;
+  margin: 0 auto 16px;
+  padding: 0;
+  border: none;
+  background: transparent;
+  border-radius: 18px;
+  overflow: hidden;
+  cursor: pointer;
+}
+
+.project-card button.project-open img {
+  position: absolute;
+  inset: 0;
+  width: 200px;
+  height: 200px;
+  object-fit: cover;
+  border-radius: 18px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* Tags + Impact */
 .tags {
   margin-top: 10px;
   display: flex;
@@ -540,21 +393,314 @@ body.dark a { color: var(--link-color); }
   text-align: center;
 }
 
-/* Dark mode tags */
-body.dark .tag {
-  background: rgba(25, 25, 25, 0.6);
-  border-color: rgba(255,255,255,0.12);
+/* ==============================
+   MODAL CAPTION + HIGHLIGHTS
+============================== */
+.project-modal__caption {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-radius: 14px;
+  background: rgba(255,255,255,0.75);
+  border: 1px solid rgba(0,0,0,0.08);
+  color: var(--text-color);
+}
+
+.caption-text { font-size: 14px; line-height: 1.5; opacity: 0.95; }
+
+.caption-highlights {
+  margin-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  font-weight: 600;
+  background: rgba(74,118,238,0.12);
+  border: 1px solid rgba(74,118,238,0.25);
+  color: var(--text-color);
 }
 
 /* ==============================
-   SCROLL REVEAL ANIMATION
+   PROJECT MODAL (FIXED FOR REAL)
+   ✅ Wide modal (no shrink)
+   ✅ PDF fills viewer
+   ✅ Image fits nicely + zoom scroll
 ============================== */
+.project-modal {
+  position: fixed;
+  inset: 0;
+  display: none;
+  z-index: 9999;
+}
+.project-modal.open { display: block; }
+
+.project-modal__backdrop {
+  position: absolute;
+  inset: 0;
+  background: rgba(0,0,0,0.75);
+}
+
+/* ✅ MAKE IT WIDE (THIS IS THE SHRINK FIX) */
+.project-modal__content {
+  position: relative;
+
+  /* 🔥 FULL WIDTH LOOK */
+  width: 99vw;          /* almost full screen */
+  max-width: none;      /* remove any cap */
+
+  height: 94vh;
+  margin: 3vh auto;
+
+  border-radius: 18px;
+  padding: 14px;
+
+  background: rgba(255,255,255,0.96);
+  backdrop-filter: blur(10px);
+
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.project-modal__close {
+  position: absolute;
+  top: 10px;
+  right: 12px;
+  border: none;
+  background: transparent;
+  font-size: 22px;
+  cursor: pointer;
+  color: var(--text-color);
+  z-index: 5;
+}
+
+.project-modal__header { padding-right: 44px; }
+.project-modal__header h3 { font-size: 22px; color: var(--text-color); }
+.project-modal__header p { margin-top: 4px; opacity: 0.85; color: var(--text-color); }
+
+/* Viewer layout */
+.project-modal__viewer {
+  flex: 1;
+  margin-top: 12px;
+
+  display: grid;
+  grid-template-columns: 60px 1fr 60px; /* bigger nav space */
+  gap: 16px;
+
+  min-height: 0;
+}
+
+/* Stage */
+.project-modal__stage {
+  overflow: auto;
+  min-height: 0;
+  border-radius: 14px;
+  background: #eef0f4;
+  padding: 12px;
+
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* Stage zoom alignment */
+.project-modal__stage.zoomed {
+  align-items: flex-start;
+  justify-content: flex-start;
+}
+
+/* ✅ IMAGE: fill stage without huge empty space */
+#modalImage {
+  display: block;
+  max-width: 100%;
+  max-height: 100%;
+  width: auto;
+  height: auto;
+
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 14px 30px rgba(0,0,0,0.14);
+
+  cursor: zoom-in;
+  transform: none;
+  transform-origin: top left;
+}
+
+/* ✅ Zoomed image: big + scroll */
+#modalImage.zoomed {
+  cursor: zoom-out;
+  transform: scale(2);
+}
+
+/* ✅ PDF: ACTUALLY fills the stage */
+#modalPDF {
+  width: 100%;
+  height: 100%;
+  border: 0;
+  border-radius: 12px;
+  display: block;
+}
+
+/* When showing PDF, remove stage padding so it looks full */
+.project-modal__stage.is-pdf {
+  padding: 0;
+  background: transparent;
+}
+
+/* Nav buttons */
+.project-modal__nav {
+  width: 52px;
+  height: 52px;
+  border-radius: 14px;
+  border: 1px solid rgba(0,0,0,0.18);
+  cursor: pointer;
+  font-size: 30px;
+  background: rgba(255,255,255,0.9);
+  color: var(--text-color);
+  display: grid;
+  place-items: center;
+}
+
+/* Footer */
+.project-modal__footer {
+  margin-top: 10px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  color: var(--text-color);
+}
+
+.project-modal__exit {
+  border: none;
+  cursor: pointer;
+  padding: 10px 14px;
+  border-radius: 12px;
+  background: var(--link-color);
+  color: #fff;
+  font-weight: 600;
+}
+
+/* ==============================
+   8) CONTACT
+============================== */
+.contact-section .group { display: flex; gap: 50px; }
+.contact-section .group .text { flex: 3; margin-top: 20px; color: var(--text-color); }
+.contact-section .group form { flex: 3; display: flex; flex-direction: column; }
+
+.contact-section input,
+.contact-section textarea {
+  font-family: 'Poppins', sans-serif;
+  border: 2px solid var(--link-color);
+  background-color: transparent;
+  padding: 10px;
+  margin-bottom: 15px;
+  outline: none;
+  resize: none;
+  color: var(--text-color);
+}
+
+.contact-section button {
+  font-size: 16px;
+  font-family: 'Poppins', sans-serif;
+  color: #fff;
+  background-color: var(--link-color);
+  border: none;
+  height: 50px;
+  cursor: pointer;
+  transition: 0.15s;
+}
+
+.contact-section button:hover { filter: brightness(0.9); }
+
+/* ==============================
+   9) RESPONSIVE
+============================== */
+@media (max-width: 850px) {
+  .hero-section .text h2 { font-size: 35px; }
+}
+
+@media (max-width: 740px) {
+  .hero-section { flex-direction: column-reverse; }
+  .hero-section .headshot img { width: 300px; }
+  .contact-section .group { flex-direction: column; }
+}
+
+@media (max-width: 600px) {
+  nav { padding: 0 20px; }
+  nav .right a { font-size: 22px; }
+  nav .right a:last-child { color: var(--text-color); background-color: transparent; padding: 0; }
+  nav .right a span { display: none; }
+
+  .hero-section { padding: 0 20px; }
+  .skills-section,
+  .contact-section,
+  .project-section { padding: 0 20px; }
+
+  .skills-section .cells .cell span { font-size: 16px; }
+
+  .project-modal__viewer {
+    grid-template-columns: 44px 1fr 44px;
+  }
+  .project-modal__nav {
+    width: 44px;
+    height: 44px;
+    font-size: 26px;
+  }
+}
+
+/* ==============================
+   10) DARK MODE
+============================== */
+body.dark {
+  --text-color: #eee;
+  --background-color: #121212;
+  --link-color: #0cf;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+body.dark nav { background-color: #1a1a1a; }
+body.dark .skills-section .cells .cell { background-color: #1f1f1f; border-color: #333; }
+body.dark .project-card { background: rgba(25, 25, 25, 0.55); border: 1px solid rgba(255, 255, 255, 0.08); box-shadow: 0 12px 30px rgba(0,0,0,0.35); }
+body.dark a { color: var(--link-color); }
+body.dark .tag { background: rgba(25, 25, 25, 0.6); border-color: rgba(255,255,255,0.12); }
+
+body.dark .project-modal__content { background: rgba(25,25,25,0.95); }
+body.dark .project-modal__caption { background: rgba(25,25,25,0.55); border-color: rgba(255,255,255,0.10); }
+body.dark .pill { background: rgba(0,204,255,0.12); border-color: rgba(0,204,255,0.25); }
+body.dark .project-modal__nav { border-color: rgba(255,255,255,0.18); background: rgba(25,25,25,0.7); }
+body.dark .project-modal__stage { background: rgba(255,255,255,0.06); }
+body.dark #modalImage { background: rgba(0,0,0,0.25); }
+
+/* DARK MODE TOGGLE */
+.dark-mode-toggle {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  background: #00d4ff;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 50px;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 5px 15px rgba(0,212,255,0.4);
+  z-index: 100;
+  transition: transform 0.3s;
+}
+.dark-mode-toggle:hover { transform: scale(1.1); }
+
+/* Scroll reveal */
 .reveal {
   opacity: 0;
   transform: translateY(22px);
   transition: opacity 0.6s ease, transform 0.6s ease;
 }
-
 .reveal.show {
   opacity: 1;
   transform: translateY(0);

@@ -23,10 +23,10 @@
       <a href="#">Bernabe Brua</a>
     </div>
     <div class="right">
-      <a href="http://github.com" target="_blank">
+      <a href="http://github.com" target="_blank" rel="noopener">
         <i class="fa-brands fa-github"></i><span>Github</span>
       </a>
-      <a href="https://www.linkedin.com/in/bernabebrua/" target="_blank">
+      <a href="https://www.linkedin.com/in/bernabebrua/" target="_blank" rel="noopener">
         <i class="fa-brands fa-linkedin"></i><span>Linkedin</span>
       </a>
       <a href="mailto:bernabebrua.1105@gmail.com?subject=Portfolio%20Inquiry&body=Hello%20Bernabe,%20I%20saw%20your%20portfolio...">
@@ -38,27 +38,28 @@
   <main>
     <!-- HERO -->
     <section class="hero-section">
-  <div class="text">
-    <h2>Hi, I'm Bernabe 👋</h2>
+      <div class="text">
+        <h2>Hi, I'm Bernabe 👋</h2>
 
-    <p class="headline">
-Aspiring Data Analyst passionate about transforming raw data into meaningful insights that support better decision-making.    </p>
+        <p class="headline">
+          Aspiring Data Analyst passionate about transforming raw data into meaningful insights that support better decision-making.
+        </p>
 
-    <p class="subheadline">
-      Open to entry-level Data Analyst / BI Analyst roles.
-    </p>
+        <p class="subheadline">
+          Open to entry-level Data Analyst / Business Analyst roles.
+        </p>
 
-    <div class="cta">
-      <a class="btn primary" href="#project"><i class="fa-solid fa-folder"></i><span>View Projects</span></a>
-      <a class="btn" href="resume.pdf" target="_blank"><i class="fa-solid fa-file-arrow-down"></i><span>Download Resume</span></a>
-      <a class="btn" href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
-    </div>
-  </div>
+        <div class="cta">
+          <a class="btn primary" href="#project"><i class="fa-solid fa-folder"></i><span>View Projects</span></a>
+          <a class="btn" href="resume.pdf" target="_blank" rel="noopener"><i class="fa-solid fa-file-arrow-down"></i><span>Download Resume</span></a>
+          <a class="btn" href="#contact"><i class="fa-solid fa-envelope"></i><span>Contact</span></a>
+        </div>
+      </div>
 
-  <div class="headshot">
-    <img src="images/my-pic2.jpg" alt="Bernabe Brua">
-  </div>
-</section>
+      <div class="headshot">
+        <img src="images/my-pic2.jpg" alt="Bernabe Brua">
+      </div>
+    </section>
 
     <!-- SKILLS -->
     <section id="skills" class="skills-section">
@@ -95,10 +96,10 @@ Aspiring Data Analyst passionate about transforming raw data into meaningful ins
 
   <div class="group">
 
+    <!-- ✅ PROJECT 1 -->
     <div class="project-card">
-      <a href="https://public.tableau.com/app/profile/bernabe.brua/vizzes" target="tableau public">
-        <img src="images/HR _ Dashboard.png" alt="Project 1">
-        <img src="images/Sales Dashboard.png" alt="Project 1">
+      <a href="https://public.tableau.com/app/profile/bernabe.brua/vizzes" target="_blank" rel="noopener">
+        <img src="images/tableau-logo.png" alt="Project 1">
         <span class="project-overlay">View Project →</span>
       </a>
 
@@ -112,25 +113,50 @@ Aspiring Data Analyst passionate about transforming raw data into meaningful ins
       <p class="project-impact">Built a dashboard to track KPIs and trends for faster reporting.</p>
     </div>
 
+    <!-- ✅ PROJECT 2 (SQL) -->
     <div class="project-card">
-      <a href="https://example.com/project2" target="_blank">
-        <img src="images/johnny-sins-1.webp" alt="Project 2">
+      <a href="https://github.com/Bern1999/SQLProjects/blob/main/Covid%20Data%20Exploration.sql" target="_blank" rel="noopener">
+        <img src="images/sql-logo.png" alt="Project 1">
         <span class="project-overlay">View Project →</span>
       </a>
 
       <p class="project-title">SQL Project</p>
-      <p class="project-subtitle">Advaced Data Analysis</p>
+      <p class="project-subtitle">Covid Data Exploration and Data Cleaning</p>
 
       <div class="tags">
         <span class="tag">SQL</span>
-        <span class="tag">MySQL</span>
       </div>
 
-      <p class="project-impact">Analyzed orders and customer behavior to identify top products.</p>
+      <p class="project-impact">Covid 19 Data Exploration and Cleaning Data in SQL Queries</p>
     </div>
 
+    <!-- ✅ PROJECT 3 (EXCEL) -->
+<div class="project-card">
+  <button class="project-open" type="button"
+  data-title="Excel Project"
+  data-subtitle="Data Analysis"
+  data-images="file/rawdataset.pdf,file/cleansedata.pdf,file/pivot.pdf,file/dashboard.pdf"
+  data-captions="Raw Dataset||Cleaned Dataset||Pivot Tablea & Charts ||Final Dashboard"
+  data-highlights="
+    Raw structure|Unclean values|
+    ||Duplicates removed|Null handled|
+    ||Pivot tables|Charts||Dashboard Summary|Dashboard Filters
+  ">
+  <img src="images/excel-logo.png" alt="Excel Project">
+  <span class="project-overlay">View Project →</span>
+</button>
+
+  <p class="project-title">Excel Project</p>
+  <p class="project-subtitle">Data Analysis</p>
+
+  <div class="tags">
+    <span class="tag">Excel</span>
   </div>
-</section>
+  <p class="project-impact">Built pivots + dashboard for fast filtering and reporting.</p>
+</div>
+
+  </div> <!-- ✅ closes .group -->
+</section> <!-- ✅ closes Projects section -->
 
     <!-- CONTACT -->
     <section id="contact" class="contact-section reveal">
@@ -139,48 +165,93 @@ Aspiring Data Analyst passionate about transforming raw data into meaningful ins
         <div class="text">
           Feel free to reach out for collaborations, questions, or just to say hi!
         </div>
-          <form>
-              <label for="name">Name</label>
-              <input type="text" id="name" name="name" placeholder="Your Name">
+        <form>
+          <label for="name">Name</label>
+          <input type="text" id="name" name="name" placeholder="Your Name">
 
-              <label for="email">Email</label>
-              <input type="email" id="email" name="email" placeholder="Your Email">
+          <label for="email">Email</label>
+          <input type="email" id="email" name="email" placeholder="Your Email">
 
-              <label for="message">Message</label>
-              <textarea id="message" name="message" cols="30" rows="10" placeholder="Your Message"></textarea>
+          <label for="message">Message</label>
+          <textarea id="message" name="message" cols="30" rows="10" placeholder="Your Message"></textarea>
 
-             <button type="button" onclick="sendMail()">Send Message</button>
-          </form>
+          <button type="button" onclick="sendMail()">Send Message</button>
+        </form>
       </div>
     </section>
   </main>
+
+  <!-- PROJECT MODAL (SQL POPUP) -->
+  <div id="projectModal" class="project-modal" aria-hidden="true">
+    <div class="project-modal__backdrop" data-close="true"></div>
+
+    <div class="project-modal__content" role="dialog" aria-modal="true">
+      <button class="project-modal__close" type="button" data-close="true">✕</button>
+
+      <div class="project-modal__header">
+        <h3 id="modalTitle"></h3>
+        <p id="modalSubtitle"></p>
+      </div>
+
+      <div class="project-modal__viewer">
+
+  <button id="prevImg" class="project-modal__nav" type="button">‹</button>
+
+  <!-- ✅ SCROLLABLE CENTER STAGE -->
+  <div class="project-modal__stage">
+    <img id="modalImage" src="" alt="Project image">
+    <iframe id="modalPDF" style="display:none;"></iframe>
+  </div>
+
+  <button id="nextImg" class="project-modal__nav" type="button">›</button>
+
+</div>
+
+        <div class="project-modal__caption">
+      <div id="modalCaption" class="caption-text"></div>
+
+        <div class="caption-highlights">
+            <span class="pill" id="pill1"></span>
+            <span class="pill" id="pill2"></span>
+            <span class="pill" id="pill3"></span>
+          </div>
+        </div>
+
+      <div class="project-modal__footer">
+        <span id="modalCounter"></span>
+        <button class="project-modal__exit" type="button" data-close="true">Exit / Go Back</button>
+      </div>
+    </div>
+  </div>
 
   <!-- DARK MODE TOGGLE BUTTON -->
   <button id="darkModeToggle" class="dark-mode-toggle">🌙</button>
 
   <!-- DARK MODE SCRIPT -->
   <script>
-  // Dark mode
-  const toggle = document.getElementById('darkModeToggle');
-  toggle.addEventListener('click', () => {
-    document.body.classList.toggle('dark');
-    toggle.innerText = document.body.classList.contains('dark') ? '☀️' : '🌙';
-  });
-
-  // Scroll reveal
-  const reveals = document.querySelectorAll('.reveal');
-
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach(entry => {
-      if (entry.isIntersecting) entry.target.classList.add('show');
+    // Dark mode
+    const toggle = document.getElementById('darkModeToggle');
+    toggle.addEventListener('click', () => {
+      document.body.classList.toggle('dark');
+      toggle.innerText = document.body.classList.contains('dark') ? '☀️' : '🌙';
     });
-  }, { threshold: 0.15 });
 
-  reveals.forEach(el => observer.observe(el));
-</script>
+    // Scroll reveal
+    const reveals = document.querySelectorAll('.reveal');
 
-<script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
-<script>
-  emailjs.init("ACY9NV9RI6WeAcrEq");
-</script>
-<script src="script.js"></script>
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) entry.target.classList.add('show');
+      });
+    }, { threshold: 0.15 });
+
+    reveals.forEach(el => observer.observe(el));
+  </script>
+
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
+  <script>
+    emailjs.init("ACY9NV9RI6WeAcrEq");
+  </script>
+  <script src="script.js"></script>
+</body>
+</html>
